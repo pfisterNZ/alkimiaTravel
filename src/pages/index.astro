@@ -1,0 +1,54 @@
+---
+import Layout from '../layouts/Layout.astro';
+import FollowLine from '../components/FollowLine.astro';
+import Hero from '../components/Hero.astro';
+import Gallery from '../components/Gallery.astro';
+import "../styles/global.css";
+import 'aos/dist/aos.css';
+
+const galleryImages = [
+  {
+    src: '/images/gallery/palmera.png',
+    title: 'Playa escondida',
+    description: 'Un lugar sereno donde el tiempo se detiene.',
+    alt: 'Playa con palmera'
+  },
+  {
+    src: '/images/gallery/barcos.png',
+    title: 'Puerto local',
+    description: 'El corazón del pueblo, lleno de vida.',
+    alt: 'Barcos en la orilla'
+  },
+  {
+    src: '/images/gallery/escalera.png',
+    title: 'Escalera al paraíso',
+    description: 'Un camino hacia la tranquilidad.',
+    alt: 'Escalera rodeada de verde'
+  },
+  {
+    src: '/images/gallery/playa.png',
+    title: 'Rincón del Caribe',
+    description: 'Arena suave y aguas cálidas.',
+    alt: 'Playa tropical'
+  },
+  {
+    src: '/images/gallery/tortugas.png',
+    title: 'Laguna de tortugas',
+    description: 'Una experiencia única en la naturaleza.',
+    alt: 'Tortugas nadando'
+  }
+];
+---
+
+<Layout>
+  
+  <Hero />
+  <br />
+  <FollowLine />
+  <Gallery
+    images={galleryImages}
+    instagram="https://instagram.com/tuusuario"
+    facebook="https://facebook.com/tuusuario"
+    whatsapp="https://wa.me/549351000000"
+  />
+</Layout>
