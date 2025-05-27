@@ -9,5 +9,14 @@ export default defineConfig({
     },
     devToolbar:{
         enabled: false
-    }
+    },
+    integrations: [
+        // Habilitar la integración de Flowbite
+        {
+            name: 'flowbite',
+            options: {
+                // Opciones de configuración si son necesarias
+            }
+        }
+    ]
 });
