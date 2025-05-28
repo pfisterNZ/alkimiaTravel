@@ -13,8 +13,47 @@ import 'aos/dist/aos.css';
 <Layout>
   <Hero />
   <SocialProof />
-  <StoryTelling />
-  <Includes />
-  <Deseo />
-  <Form />
+  <div class="lazy-load" data-aos="fade-up">
+    <StoryTelling />
+  </div>
+  <div class="lazy-load" data-aos="fade-up">
+    <Includes />
+  </div>
+  <div class="lazy-load" data-aos="fade-up">
+    <Deseo />
+  </div>
+  <div class="lazy-load" data-aos="fade-up">
+    <Form />
+  </div>
 </Layout>
+
+<script>
+  // Implementar Intersection Observer para lazy loading
+  document.addEventListener('DOMContentLoaded', () => {
+    const lazyLoadElements = document.querySelectorAll('.lazy-load');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('loaded');
+          observer.unobserve(entry.target);
+        }
+      });
+    });
+
+    lazyLoadElements.forEach(element => {
+      observer.observe(element);
+    });
+  });
+</script>
+
+<style>
+  .lazy-load {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .lazy-load.loaded {
+    opacity: 1;
+  }
+</style>

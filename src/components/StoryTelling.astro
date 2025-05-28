@@ -16,7 +16,25 @@
   </div>
   <!-- Imagen a la derecha -->
   <div class="flex-1 flex justify-center items-center w-full mt-6 md:mt-5 md:pr-8 lg:pr-25 md:pl-8">
-    <img src="https://i.ibb.co/S7rhyZGM/IMG-0061.jpg" alt="Storytelling 1" class="w-[550px] max-w-sm sm:max-w-md md:max-w-xl lg:max-w-2xl h-auto rounded-xl shadow-xl object-cover" />
+    <picture>
+      <source
+        srcset="https://i.ibb.co/S7rhyZGM/IMG-0061.webp"
+        type="image/webp"
+      />
+      <source
+        srcset="https://i.ibb.co/S7rhyZGM/IMG-0061.jpg"
+        type="image/jpeg"
+      />
+      <img 
+        src="https://i.ibb.co/S7rhyZGM/IMG-0061.jpg" 
+        alt="Storytelling 1" 
+        class="w-[550px] max-w-sm sm:max-w-md md:max-w-xl lg:max-w-2xl h-auto rounded-xl shadow-xl object-cover"
+        loading="lazy"
+        decoding="async"
+        width="550"
+        height="367"
+      />
+    </picture>
   </div>
 </article>
 
