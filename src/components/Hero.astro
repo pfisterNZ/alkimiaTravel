@@ -1,12 +1,12 @@
 <div class="relative z-20 h-[40rem] w-full overflow-hidden">
   <!-- VIDEO DE FONDO -->
   <video
+    id="heroVideo"
     autoplay
     muted
     loop
     playsinline
-    preload="none"
-    class="absolute top-0 left-0 w-full h-full object-cover z-[-1] hidden lg:block"
+    class="absolute top-0 left-0 w-full h-full object-cover z-[-1]"
   >
     <source src="/videos/bg-video-hero.mp4" type="video/mp4" />
   </video>
@@ -15,7 +15,7 @@
   <header
     class="flex justify-between items-center px-4 sm:px-8 py-4 text-white relative z-10"
   >
-    <img src="/images/at.png" alt="Logo" class="w-[50px] sm:w-[70px] md:w-[90px]" />
+    <img src="/images/at.png" alt="Logo" class="w-[50px] sm:w-[70px] md:w-[90px]" loading="eager" />
     <nav class="hidden md:flex gap-6 font-medium text-sm">
       <a href="#" class="hover:underline">¿Por qué?</a>
       <a href="#" class="hover:underline">Features</a>
@@ -61,6 +61,29 @@
     </p>
   </div>
 </div>
+
+<script>
+  // Optimización de carga del video
+  document.addEventListener('DOMContentLoaded', () => {
+    const video = document.getElementById('heroVideo');
+    if (video) {
+      // Precargar el video
+      video.preload = 'auto';
+      
+      // Manejar errores de carga
+      video.addEventListener('error', () => {
+        console.error('Error al cargar el video');
+      });
+
+      // Optimizar reproducción
+      video.addEventListener('canplay', () => {
+        video.play().catch(error => {
+          console.log('Error al reproducir el video:', error);
+        });
+      });
+    }
+  });
+</script>
 
 <style>
 @keyframes fade-in {

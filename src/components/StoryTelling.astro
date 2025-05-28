@@ -16,26 +16,34 @@
   </div>
   <!-- Imagen a la derecha -->
   <div class="flex-1 flex justify-center items-center w-full mt-6 md:mt-5 md:pr-8 lg:pr-25 md:pl-8">
-    <picture>
-      <source
-        srcset="https://i.ibb.co/S7rhyZGM/IMG-0061.webp"
-        type="image/webp"
-      />
-      <source
-        srcset="https://i.ibb.co/S7rhyZGM/IMG-0061.jpg"
-        type="image/jpeg"
-      />
-      <img 
-        src="https://i.ibb.co/S7rhyZGM/IMG-0061.jpg" 
-        alt="Storytelling 1" 
-        class="w-[550px] max-w-sm sm:max-w-md md:max-w-xl lg:max-w-2xl h-auto rounded-xl shadow-xl object-cover"
-        loading="lazy"
-        decoding="async"
-        width="550"
-        height="367"
-      />
-    </picture>
+    <img 
+      id="storytellingImage"
+      src="https://i.ibb.co/S7rhyZGM/IMG-0061.jpg" 
+      alt="Storytelling 1" 
+      class="w-[550px] max-w-sm sm:max-w-md md:max-w-xl lg:max-w-2xl h-auto rounded-xl shadow-xl object-cover opacity-0 transition-opacity duration-500"
+    />
   </div>
 </article>
+
+<script>
+  // Optimización de carga de imagen
+  document.addEventListener('DOMContentLoaded', () => {
+    const img = document.getElementById('storytellingImage');
+    if (img) {
+      // Precargar la imagen
+      const preloadImage = new Image();
+      preloadImage.src = img.src;
+      
+      preloadImage.onload = () => {
+        img.classList.remove('opacity-0');
+        img.classList.add('opacity-100');
+      };
+
+      preloadImage.onerror = () => {
+        console.error('Error al cargar la imagen');
+      };
+    }
+  });
+</script>
 
 
