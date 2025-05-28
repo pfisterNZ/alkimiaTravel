@@ -1,56 +1,58 @@
-<div class="sticky bottom-0 z-10 w-full mx-auto pt-10 sm:pt-20 md:pt-32 pb-12 px-2 sm:px-8 pb-1">
-    <video
+<div class="relative w-full mx-auto pt-10 sm:pt-20 md:pt-32 pb-12 px-2 sm:px-8 pb-1">
+  <video
     autoplay
     muted
     loop
     playsinline
-    class="absolute top-0 left-0 w-full h-full object-cover z-[-1]"
+    class="absolute top-0 left-0 w-full h-full object-cover"
+    style="z-index:0;"
   >
     <source src="/videos/bg-video-hero.mp4" type="video/mp4" />
   </video>
-    <section class="sticky bottom-0 z-10 w-full max-w-3xl mx-auto bg-cyan-950/90 rounded-2xl shadow-2xl px-6">
-      <div class="flex flex-col items-center mb-6">
-        <span class="text-blue-400 text-2xl mr-2">✈️</span>
-        <h2 class="text-white text-lg sm:text-xl md:text-2xl font-semibold tracking-wide text-center">ARMÁ TU VIAJE CON NOSOTROS</h2>
-        <div class="w-40 h-1 bg-white/70 rounded-full mt-2 mb-2"></div>
+  <section class="relative w-full max-w-3xl mx-auto bg-cyan-950/90 rounded-2xl shadow-2xl px-6">
+    <div class="flex flex-col items-center mb-6">
+      <span class="text-blue-400 text-2xl mr-2">✈️</span>
+      <h2 class="text-white text-lg sm:text-xl md:text-2xl font-semibold tracking-wide text-center">ARMÁ TU VIAJE CON NOSOTROS</h2>
+      <div class="w-40 h-1 bg-white/70 rounded-full mt-2 mb-2"></div>
+    </div>
+    <p class="text-white text-center mb-8 text-base">¿Querés viajar a Búzios? Completá este formulario y recibí tu presupuesto sin compromiso.</p>
+    <form id="presupuestoForm" class="space-y-6">
+      <div>
+        <label class="block text-white font-semibold mb-1" for="nombre">Ingrese su nombre completo</label>
+        <input id="nombre" name="nombre" type="text" required class="w-full rounded-lg px-4 py-2 bg-cyan-900/80 text-white placeholder-gray-300 border border-cyan-700 focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Tu nombre completo" />
       </div>
-      <p class="text-white text-center mb-8 text-base">¿Querés viajar a Búzios? Completá este formulario y recibí tu presupuesto sin compromiso.</p>
-      <form id="presupuestoForm" class="space-y-6">
-        <div>
-          <label class="block text-white font-semibold mb-1" for="nombre">Ingrese su nombre completo</label>
-          <input id="nombre" name="nombre" type="text" required class="w-full rounded-lg px-4 py-2 bg-cyan-900/80 text-white placeholder-gray-300 border border-cyan-700 focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Tu nombre completo" />
-        </div>
-        <div>
-          <label class="block text-white font-semibold mb-1" for="contacto">Ingrese su WhatsApp o Teléfono</label>
-          <input id="contacto" name="contacto" type="text" required class="w-full rounded-lg px-4 py-2 bg-cyan-900/80 text-white placeholder-gray-300 border border-cyan-700 focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Ej: +54 9 11 1234-5678" />
-        </div>
-        <div>
-          <label class="block text-white font-semibold mb-1" for="fecha">Ingrese la fecha estimada del viaje <span class="text-xs text-gray-400">(opcional)</span>
-          </label>
-          <input id="fecha" name="fecha" type="text" required class="w-full rounded-lg px-4 py-2 bg-cyan-900/80 text-white placeholder-gray-300 border border-cyan-700 focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Ej: Noviembre 2024" />
-        </div>
-        <div>
-          <label class="block text-white font-semibold mb-1" for="personas">Ingrese la cantidad de personas</label>
-          <input id="personas" name="personas" type="number" min="1" required class="w-full rounded-lg px-4 py-2 bg-cyan-900/80 text-white placeholder-gray-300 border border-cyan-700 focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Ej: 2" />
-        </div>
-        <button id="submit" type="submit" class="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all text-base md:text-lg w-full justify-center mt-2 animate-fade-in"> QUIERO MI PRESUPUESTO PERSONALIZADO
-        </button>
-      </form>
-      <div class="flex items-center gap-2 mt-6 justify-center">
-        <span class="text-red-400 text-lg">●</span>
-        <span class="text-red-400 text-sm">Te respondemos en menos de 24h. Sin compromiso.</span>
+      <div>
+        <label class="block text-white font-semibold mb-1" for="contacto">Ingrese su WhatsApp o Teléfono</label>
+        <input id="contacto" name="contacto" type="text" required class="w-full rounded-lg px-4 py-2 bg-cyan-900/80 text-white placeholder-gray-300 border border-cyan-700 focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Ej: +54 9 11 1234-5678" />
       </div>
+      <div>
+        <label class="block text-white font-semibold mb-1" for="fecha">Ingrese la fecha estimada del viaje <span class="text-xs text-gray-400">(opcional)</span>
+        </label>
+        <input id="fecha" name="fecha" type="text" required class="w-full rounded-lg px-4 py-2 bg-cyan-900/80 text-white placeholder-gray-300 border border-cyan-700 focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Ej: Noviembre 2024" />
+      </div>
+      <div>
+        <label class="block text-white font-semibold mb-1" for="personas">Ingrese la cantidad de personas</label>
+        <input id="personas" name="personas" type="number" min="1" required class="w-full rounded-lg px-4 py-2 bg-cyan-900/80 text-white placeholder-gray-300 border border-cyan-700 focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Ej: 2" />
+      </div>
+      <button id="submit" type="submit" class="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all text-base md:text-lg w-full justify-center mt-2 animate-fade-in"> QUIERO MI PRESUPUESTO PERSONALIZADO
+      </button>
+    </form>
+    <div class="flex items-center gap-2 mt-6 justify-center">
+      <span class="text-red-400 text-lg">●</span>
+      <span class="text-red-400 text-sm">Te respondemos en menos de 24h. Sin compromiso.</span>
+    </div>
+  </section>
 </div>
-  <style>
-    @keyframes fade-in {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .animate-fade-in {
-      animation: fade-in 1s cubic-bezier(0.4,0,0.2,1) both;
-    }
-  </style>
-</section>
+
+<style>
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in {
+    animation: fade-in 1s cubic-bezier(0.4,0,0.2,1) both;
+  }
+</style>
 
 <script>
   document.getElementById('presupuestoForm')?.addEventListener('submit', async function(e) {
