@@ -1,20 +1,49 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import SocialProof from '../components/SocialProof.astro';
-import Hero from '../components/Hero.astro';
-import StoryTelling from '../components/StoryTelling.astro';
-import Deseo from '../components/Deseo.astro';
-import Includes from '../components/Includes.astro';
-import Form from '../components/Form.astro';
+import Layout from "../layouts/Layout.astro";
+import SocialProof from "../components/SocialProof.astro";
+import Hero from "../components/Hero.astro";
+import StoryTelling from "../components/StoryTelling.astro";
+import Includes from "../components/Includes.astro";
+import Form from "../components/Form.astro";
+import Review from "../components/Review.astro";
+import Posts from "../components/Posts.astro";
 import "../styles/global.css";
-import 'aos/dist/aos.css';
+import "aos/dist/aos.css";
 ---
 
 <Layout>
   <Hero />
   <SocialProof />
   <StoryTelling />
+  <Review
+    reviews={[
+      {
+        name: "Sofia Sistero",
+        rating: 5,
+        comment:
+          "Un diez en la organización, nos esperaron en el aeropuerto de Río a horario, la posada tal cual las fotos que mandaron, y el transfer de regreso también a horario! Nos regalaron un City tours por los mirantes de Buzios👏🏼 tambien le compramos la excursión Arraial, estuvo de diez y a un precio accesible! Gracias Juan por todo!",
+        avatar: "https://i.pinimg.com/736x/69/a5/60/69a5602fb6377d1fef9bb45e8db9e415.jpg",
+        date: "Mayo 2025",
+        images: [
+          { src: "https://lh3.googleusercontent.com/geougc-cs/AB3l90C6BN759dvC3fN4bjvxBZ4OjCd5RW7T_yvrhU8exj8TZQHlo9RoX2E0SsbbvCL317pQAUUx1ZUOl4ddMEgrsQyeIbApx_AHzs4DmJCC_UE7JR3Tdhq4Pns-0XuJNDqH8EUq5Xm3=s3072-w3072-h1470-rw"}
+        ],
+      },
+      {
+        name: "Carla Balbuena",
+        rating: 5,
+        comment: "Excelente servicio!! Lo Super recomiendo!! Seguridad , confianza, y muy buena onda!!!👍🤜🤛",
+        avatar: "https://lh3.googleusercontent.com/a-/ALV-UjUlXgXlMufwsfYlEOob7Q9f_27fSVqk-BfAh9ejz4wgSedpgBsh=w72-h72-p-rp-mo-br100"
+      },
+      {
+        name: "Gaston",
+        rating: 5,
+        avatar: "https://lh3.googleusercontent.com/a-/ALV-UjXKChZlj3ljtFN03yDGr4SC80Ww_TfoMUIsLm2RiKm2RD2s-Ak=w72-h72-p-rp-mo-ba4-br100",
+        comment: "Excelente servicio, muy atentos y responsables! Una empresa ideal para disfrutar y conocer.",
+        images: [{ src: "https://lh3.googleusercontent.com/geougc-cs/AB3l90AQY_N0AB9Ls-djLF6hjPk6uTfG2KrAwLBfPOtTVcQwHmE56OYEWYeRslR8FhwJEV0AQGzAVFZK_nfBkvV_efnE9C_PGX3NcKEENO5CzMzAI3fMVrPBbLMKHzfr6cKhT8J5JM8=s3072-w3072-h1470-rw" }],
+      },
+    ]}
+  />
   <Includes />
-  <Deseo />
+  <Posts />
   <Form />
 </Layout>

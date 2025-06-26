@@ -1,0 +1,81 @@
+---
+ export interface Review {
+  name: string;
+  rating: number; // 1-5
+  comment: string;
+  avatar?: string;
+  date?: string;
+  images?: { src: string; href?: string }[];
+}
+const { reviews = [] }: { reviews: Review[] } = Astro.props;
+
+const drawStars = (rating: number) => Array.from({ length: 5 }, (_, i) => i < rating);
+---
+
+<section class="gradient-background py-16">
+  <div class="container mx-auto px-4 max-w-6xl">
+    <h2 class="text-center text-3xl md:text-4xl font-bold tracking-tight text-cyan-900 mb-5">
+      ¡ Viajeros totalmente satisfechos con nosotros
+    </h2>
+    <p class="text-center text-cyan-900/50 mb-15">
+        Nuestros clientes nos han dejado testimonios de su experiencia con nosotros.
+    </p>
+
+    <ul class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      {reviews.map((review, index) => (
+        <li class="group bg-white shadow-xl rounded-2xl p-6 flex flex-col gap-4 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+          <div class="flex items-center gap-4">
+            {review.avatar ? (
+              <img src={review.avatar} alt={`Avatar de ${review.name}`} class="w-12 h-12 rounded-full object-cover" loading="lazy" />
+            ) : (
+              <div class="w-12 h-12 rounded-full bg-slate-200 flex items-center justify-center text-slate-500 font-semibold uppercase">
+                {review.name.slice(0,1)}
+              </div>
+            )}
+            <div>
+              <p class="font-semibold text-slate-900">{review.name}</p>
+              {review.date && <p class="text-xs text-slate-500">{review.date}</p>}
+            </div>
+          </div>
+
+          <div aria-label={`${review.rating} de 5 estrellas`} class="flex gap-1">
+            {drawStars(review.rating).map((filled, idx) => (
+              <svg
+                viewBox="0 0 20 20"
+                class={`w-5 h-5 ${filled ? 'fill-amber-400' : 'fill-slate-300'}`}
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M10 15.27L16.18 18l-1.64-7.03L19 7.24l-7.19-.62L10 0 8.19 6.62 1 7.24l5.46 3.73L4.82 18z" />
+              </svg>
+            ))}
+          </div>
+
+          <p class="text-slate-700 leading-relaxed">
+            {review.comment}
+          </p>
+
+          {review.images && review.images.length ? (
+            <div class="mt-2 grid grid-cols-3 gap-2">
+              {review.images.slice(0,6).map((imgObj, i) => (
+                <a
+                  href={imgObj.href ?? imgObj.src}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="block group/image"
+                >
+                  <img
+                    src={imgObj.src}
+                    alt={`Imagen enviada por ${review.name}`}
+                    class="w-full h-24 md:h-28 lg:h-32 object-cover rounded-xl transition-opacity duration-200 group-hover/image:opacity-90"
+                    loading="lazy"
+                  />
+                </a>
+              ))}
+            </div>
+          ) : null}
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
