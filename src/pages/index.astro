@@ -9,9 +9,11 @@ import Review from "../components/Review.astro";
 import Posts from "../components/Posts.astro";
 import "../styles/global.css";
 import "aos/dist/aos.css";
+import Analytics from '@vercel/analytics/astro'
 ---
 
 <Layout>
+  <Analytics />
   <Hero />
   <SocialProof />
   <StoryTelling />
