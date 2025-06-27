@@ -1,3 +1,8 @@
+---
+// Configuración de Google Analytics
+const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID || 'G-XXXXXXXXXX';
+---
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -13,6 +18,15 @@
         font-family: 'DM Sans', sans-serif !important;
       }
     </style>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '{GA_MEASUREMENT_ID}');
+    </script>
   </head>
   <body>
     <slot />
