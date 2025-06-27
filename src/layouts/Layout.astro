@@ -1,6 +1,7 @@
 ---
 // Configuración de Google Analytics
-const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID || 'G-XXXXXXXXXX';
+const GA_MEASUREMENT_ID =
+  import.meta.env.PUBLIC_GA_MEASUREMENT_ID || "G-XXXXXXXXXX";
 ---
 
 <!doctype html>
@@ -11,34 +12,50 @@ const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID || 'G-XXXXXXX
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>Alkimia Travel | Agencia de viajes y turismo</title>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/styles/global.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/global.css" />
     <style>
-      html, body {
-        font-family: 'DM Sans', sans-serif !important;
+      html,
+      body {
+        font-family: "DM Sans", sans-serif !important;
       }
     </style>
-    
+
     <!-- Google tag (gtag.js) -->
-    <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}></script>
-    <script is:inline>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XE6Z2F2S1X"
+    ></script>
+    <script>
+      // @ts-ignore
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', '{GA_MEASUREMENT_ID}');
+      // @ts-ignore
+      function gtag(...args: any[]) {
+        // @ts-ignore
+        dataLayer.push(args);
+      }
+      // @ts-ignore
+      gtag("js", new Date());
+
+      gtag("config", "G-XE6Z2F2S1X");
     </script>
   </head>
   <body>
     <slot />
     <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js')
-            .then(registration => {
-              console.log('ServiceWorker registrado exitosamente:', registration.scope);
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("/sw.js")
+            .then((registration) => {
+              console.log(
+                "ServiceWorker registrado exitosamente:",
+                registration.scope
+              );
             })
-            .catch(error => {
-              console.log('Error al registrar el ServiceWorker:', error);
+            .catch((error) => {
+              console.log("Error al registrar el ServiceWorker:", error);
             });
         });
       }
@@ -48,11 +65,11 @@ const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID || 'G-XXXXXXX
 
 <style>
   @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
-html,
-body {
-	margin: 0;
+  html,
+  body {
+    margin: 0;
     width: 100%;
     height: 100%;
-	font-family: 'DM Sans', sans-serif !important;
-}
+    font-family: "DM Sans", sans-serif !important;
+  }
 </style>
